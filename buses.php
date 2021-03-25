@@ -8,24 +8,25 @@
         <meta name="author" content="" />
         <title>Coop Nuevo Ecuador</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/imagen.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.php">Coop Nuevo Ecuador</a>
+            <a class="navbar-brand" href="inicio.php">Coop Nuevo Ecuador</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
            
             <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
+            <ul class="navbar-nav ml-auto ml-md-7">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.php">Logout</a>
+                        <a class="dropdown-item" href="index.php">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -36,17 +37,12 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="inicio.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll"></i></i></div>
-                                Inicio
-
-                             <a class="nav-link" href="aportes.php">
-                                <div class="sb-nav-link-icon"><i class=""></i></div>
+                                inicio
                             </a>
 
-
-
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">Contro de Usuarios</div>
                             
                                 
 
@@ -56,9 +52,19 @@
                             </a>
 
 
+                            <a class="nav-link" href="consulta_user.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard-check"></i></i></div>
+                                Consulta de Usuario
+                            </a>
+
+                            <div class="sb-sidenav-menu-heading">Contro de Aportes</div>
+                    
+                        
+
+
                             <a class="nav-link" href="consulta_usuario.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
-                                Consulta de Usuario
+                                Consulta de Aportes
                             </a>
 
 
@@ -68,12 +74,10 @@
                             </a>
 
 
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                
+
+                           <div class="sb-sidenav-menu-heading">Contro de Rutas y Buses</div>
 
 
-
-                            <div class="sb-sidenav-menu-heading">Configuracion de rutas</div>
                             <a class="nav-link" href="rutas.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-map-marker-alt"></i></i></div>
                                 Nueva Ruta
@@ -88,21 +92,14 @@
 
 
 
-
-
-
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
+                        <br>
                         <h1 class="mt-4">Registro de Buses</h1>
 
-            <br>
             <br>
 
 
@@ -138,31 +135,28 @@
                         <label for="exampleInputPassword1">Codigo de Buses </label>
                         <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Codigo" name="codigo">
               </div>
-                
-
-                <br>
+            
             
 
-                <div class="form-group">
+            <div class="form-group">
                     <label for="exampleInputPassword1">Placa</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Placa" name="placa">
               </div>
                 
             
-                <br>
+              <div class="form-group">
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">Papeles en Regla</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="tipo_indentificacion">
 
-                 <div class="form-group">
-                        <label for="exampleInputFile">Documento de Matricula</label>
-
-                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="documento">
-
-                        <small id="fileHelp" class="form-text text-muted">Seleccione el archivo a subir </small>
+                          <option></option>
+                          <option>Si</option>
+                          <option>No</option>
+                          
+                        </select>
                       </div>
+                
 
-
-
-
-               <br>
                <br>
                 
                 <div class="form-group">
@@ -178,41 +172,15 @@
             </form>
         </div>
 
-
+        <br>
           
-                            
-            
+       
                        
 
            
                 
 
-                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
-                </main>
+            </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">

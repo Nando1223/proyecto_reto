@@ -8,24 +8,25 @@
         <meta name="author" content="" />
         <title>Coop Nuevo Ecuador</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/imagen.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.php">Coop Nuevo Ecuador</a>
+            <a class="navbar-brand" href="inicio.php">Coop Nuevo Ecuador</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
            
             <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
+            <ul class="navbar-nav ml-auto ml-md-7">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.php">Logout</a>
+                        <a class="dropdown-item" href="index.php">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -36,17 +37,12 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="inicio.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll"></i></i></div>
-                                Inicio
-
-                             <a class="nav-link" href="aportes.php">
-                                <div class="sb-nav-link-icon"><i class=""></i></div>
+                                inicio
                             </a>
 
-
-
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">Contro de Usuarios</div>
                             
                                 
 
@@ -56,9 +52,19 @@
                             </a>
 
 
+                            <a class="nav-link" href="consulta_user.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard-check"></i></i></div>
+                                Consulta de Usuario
+                            </a>
+
+                            <div class="sb-sidenav-menu-heading">Contro de Aportes</div>
+                    
+                        
+
+
                             <a class="nav-link" href="consulta_usuario.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
-                                Consulta de Usuario
+                                Consulta de Aportes
                             </a>
 
 
@@ -68,12 +74,10 @@
                             </a>
 
 
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                
+
+                           <div class="sb-sidenav-menu-heading">Contro de Rutas y Buses</div>
 
 
-
-                            <div class="sb-sidenav-menu-heading">Configuracion de rutas</div>
                             <a class="nav-link" href="rutas.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-map-marker-alt"></i></i></div>
                                 Nueva Ruta
@@ -88,62 +92,87 @@
 
 
 
-
-
-
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
+                   
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Consultar Usuario</h1>
+                        <br>
+                        <h1 class="mt-4 text-center">Consultar Aportes</h1>
 
-            <br>
-            <br>
-
-            <nav class="navbar navbar-light bg-light justify-content-between">
-
-                  <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                    
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit" value="">Buscar</button>
-                  </form>
-                </nav>
-                            
             
-                       
+                <br>
+                <br>
 
-           
+                <div class="container">
+                <div class="row">
+                <div class="col">
+                <table class="table table-striped table-bordered table-hover">
+                
+                <tr align="">
+                    <td>cantidad</td>
+                    <td>Nombre</td>
+                    <td>Cedula</td>
+                    <td>Fecha de Registro</td>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+
+
+                <?php 
+
+                include 'conexion.php';
+
+
+                // establecer y realizar consulta. guardamos en variable.
+                $query = "SELECT * FROM registro_aportes";
+
+                $resultado = mysqli_query($con, $query);
+
+                 while($datos=$resultado->fetch_array()){
+
+                    ?>
+                        <tr>
+                            <td><?php echo $datos["monto"]?></td>
+                            <td><?php echo $datos["id_persona"]?></td>
+                            <td><?php echo $datos["cedula"]?></td>
+                            <td><?php echo $datos["fecha_ingreso"]?></td>
+                            <td>
+                            <form action="Eliminar.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $datos["id"]?>">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                           
+                            </form>
+                            </td> 
+                            <td><a href="editar.php?id=<?php echo $datos["id"]?>" type="button" class="btn btn-primary">Editar</a></td>            
+                        </tr>
+                        <?php   
+                    }
+
+                 ?>
+                </table>
+
+                <br>
+                <br>
+                <form>
+               <td>
+               
+
                 
 
-                            
+                  </form>  
+              </td>
+            </tr>
+                           
 
 
 
+               
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
                         
                 </main>
                 <footer class="py-4 bg-light mt-auto">

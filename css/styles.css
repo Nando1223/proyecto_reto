@@ -4411,34 +4411,7 @@ input[type=button].btn-block {
   margin-left: -0.625rem;
 }
 
-.card-img-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1.25rem;
-  border-radius: calc(0.25rem - 1px);
-}
 
-.card-img,
-.card-img-top,
-.card-img-bottom {
-  flex-shrink: 0;
-  width: 100%;
-}
-
-.card-img,
-.card-img-top {
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
-}
-
-.card-img,
-.card-img-bottom {
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
-}
 
 .card-deck .card {
   margin-bottom: 15px;

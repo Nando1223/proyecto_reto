@@ -116,9 +116,9 @@ INSERT INTO `rutas` (`id`, `salida`, `serie`, `dia`, `mes`, `hora`) VALUES
 --
 
 CREATE TABLE `usuario` (
-  `id` int(50) NOT NULL,
+  `id` int(50) NOT NULL AUTO_INCREMENT,
   `user` varchar(50) NOT NULL,
-  `password` int(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `fecha_creacion` datetime(6) NOT NULL,
   `fecha_actual` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

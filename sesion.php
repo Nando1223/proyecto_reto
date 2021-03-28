@@ -1,33 +1,29 @@
 <?php
-session_start();
 include 'conexion.php';
-
+session_start();
 if (isset($_POST['username'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $query = "SELECT COUNT(*) AS contar FROM usuario WHERE nombre = '$username' and password = '$clave' ";
+    $query = "SELECT COUNT(*) AS contar FROM usuario WHERE user = '$username' and password = '$password'";
     $resultado = mysqli_query($con, $query);
-} else {
-    # code...
+
+    $parametros = mysqli_fetch_array($resultado);
+    if ($parametros['contar'] > 0) {
+        
+        $_SESSION['username'] = $username;
+        header("location: inicio.php");
+    } else {
+        header("location: index.php");
+    }
 }
 
-
-
-require 'conexion.php';
-$user = $_POST['usuario'];
-$clave = $_POST['clave'];
-
-
-$bdconect = mysqli_query($conectar, $query);
-$parametros = mysqli_fetch_array($bdconect);
-if($parametros['contar']>0){
-	$_SESSION['username'] = $user;
-	header("location: index.php");
-}else{
-	echo "<h1>No eres Don Cede</h1> <br>";
-	echo "<a href='login.php' class='btn btn-warning'>Volver</a>";
-
+if (!isset($_SESSION['username'])) {
+    header("location: index.php");
 }
 
+if (isset($_POST['endSesion'])) {
+    session_destroy();
+    header("location: index.php");
+}
 ?>

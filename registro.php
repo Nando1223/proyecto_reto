@@ -13,10 +13,7 @@
 </head>
 
 <body>
-<?php
-    include "sesion.php";
-    ?>
-  <main class="d-flex align-items-center min-vh-100 py-5 py-md-0">
+  <main class="py-5 d-flex align-items-center min-vh-100 py-md-0">
     <div class="container">
       <div class="card login-card">
         <div class="row no-gutters">
@@ -69,7 +66,7 @@
                   <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese un usuario">
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4 form-group">
                   <label for="email" class="sr-only">Email</label>
                   <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese un email">
                 </div>
@@ -82,7 +79,7 @@
 
                 <br>
 
-                <button class="btn btn-block login-btn mb-4" type="submit" name="registrar" value="registrar">Registrar</button>
+                <button class="mb-4 btn btn-block login-btn" type="submit" name="registrar" value="registrar">Registrar</button>
 
               </form>
 

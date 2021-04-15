@@ -116,7 +116,7 @@ INSERT INTO `rutas` (`id`, `salida`, `serie`, `dia`, `mes`, `hora`) VALUES
 --
 
 CREATE TABLE `usuario` (
-  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `id` int(50) NOT NULL,
   `user` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `fecha_creacion` datetime(6) NOT NULL,
@@ -167,6 +167,8 @@ ALTER TABLE `usuario`
 ALTER TABLE `buses`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
+ALTER TABLE `usuario`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --

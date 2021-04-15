@@ -20,11 +20,11 @@
     ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="inicio.php">Coop Nuevo Ecuador</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <button class="order-1 btn btn-link btn-sm order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
 
         <!-- Navbar-->
-        <ul class="navbar-nav ml-auto ml-md-7">
+        <ul class="ml-auto navbar-nav ml-md-7">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php
@@ -142,7 +142,7 @@
 
 
             </main>
-            <footer class="py-4 bg-light mt-auto">
+            <footer class="py-4 mt-auto bg-light">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Your Website 2020</div>

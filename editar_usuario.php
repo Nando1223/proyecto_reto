@@ -15,13 +15,16 @@
 </head>
 
 <body class="sb-nav-fixed">
+    <?php
+    include "sesion.php";
+    ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="inicio.php">Coop Nuevo Ecuador</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <button class="order-1 btn btn-link btn-sm order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
 
         <!-- Navbar-->
-        <ul class="navbar-nav ml-auto ml-md-7">
+        <ul class="ml-auto navbar-nav ml-md-7">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -150,7 +153,7 @@
 
                             <form method="post">
 
-                                <table  align="center" class="table table-hover">
+                                <table align="center" class="table table-hover">
 
                                     <tr>
                                         <th>Nombre</th>
@@ -169,14 +172,18 @@
                                     <tr>
                                         <th width="250">Cedula</th>
                                         <td>
-                                            <input type="text" name="cedula" value="<?php echo $datos['cedula'] ?>">
+                                            <input type="text" name="cedula" class="input-number" value="<?php echo $datos['cedula'] ?>">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Tipo de Indentificacion</th>
                                         <td>
-                                            <input type="text" name="tipo_indentificacion" value="<?php echo $datos['tipo_indentificacion'] ?>">
-
+                                            <label for="exampleFormControlSelect1">Tipo de documento</label>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="tipo_indentificacion" style="width: 200px;">
+                                                <option value="<?php echo $datos['tipo_indentificacion'] ?>"></option>
+                                                <option value="Cedula">Cedula</option>
+                                                <option value="Pasaporte">Pasaporte</option>
+                                            </select>
                                         </td>
                                     </tr>
                                 </table>
@@ -222,7 +229,7 @@
 
 
             </main>
-            <footer class="py-4 bg-light mt-auto">
+            <footer class="py-4 mt-auto bg-light">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Your Website 2020</div>
@@ -237,6 +244,11 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script>
+        $('.input-number').on('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
